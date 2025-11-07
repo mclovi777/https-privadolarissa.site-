@@ -1,504 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Links | Bio Personalizada</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Experiência Sensual</title>
     <style>
-        :root {
-            --primary: #6e8efb;
-            --secondary: #a777e3;
-            --dark: #333;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark);
+            background-color: #1a1a2e;
+            color: #fff;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
+            overflow: hidden;
+            position: relative;
         }
-        
+
+        /* Imagem de fundo */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
         .container {
             max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        
-        header {
+            padding: 40px;
             text-align: center;
-            margin-bottom: 30px;
-            color: var(--white);
+            z-index: 1;
         }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .tabs {
-            display: flex;
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
+
+        .title {
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            box-shadow: var(--shadow);
-        }
-        
-        .tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-        
-        .tab.active {
-            background: var(--primary);
-            color: var(--white);
-        }
-        
-        .tab:hover:not(.active) {
-            background: rgba(110, 142, 251, 0.1);
-        }
-        
-        .tab-content {
-            display: none;
-            background: var(--white);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .profile {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--white);
-            box-shadow: var(--shadow);
-            margin-bottom: 15px;
-        }
-        
-        .profile h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .profile p {
-            font-size: 16px;
-            color: var(--gray);
-            max-width: 80%;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-        
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .link-item {
-            background-color: var(--white);
-            padding: 15px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .link-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
-            background-color: #f8f9fa;
-        }
-        
-        .link-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 18px;
-        }
-        
-        .link-text {
-            flex: 1;
-        }
-        
-        .link-text h3 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-        
-        .link-text p {
-            font-size: 14px;
-            color: var(--gray);
-        }
-        
-        .social-links {
+            color: #e94560;
+            min-height: 120px;
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
             align-items: center;
+        }
+
+        .typed-text {
+            border-right: 3px solid #e94560;
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: #e94560; }
+            50% { border-color: transparent; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #c9c9c9;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
             justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
-        .social-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-        }
-        
-        .editor-container {
-            background: var(--light);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .editor-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .editor-header h3 {
-            color: var(--dark);
-        }
-        
-        .editor-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
+
         .btn {
-            padding: 8px 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            min-width: 200px;
         }
-        
+
         .btn-primary {
-            background: var(--primary);
-            color: var(--white);
+            background: linear-gradient(45deg, #e94560, #b9314f);
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
         }
-        
+
         .btn-secondary {
-            background: var(--gray);
-            color: var(--white);
+            background: linear-gradient(45deg, #533483, #351f5e);
+            color: white;
+            box-shadow: 0 4px 15px rgba(83, 52, 131, 0.4);
         }
-        
+
+        .btn-privacy {
+            background: linear-gradient(45deg, #ff7b25, #e85d04);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 123, 37, 0.4);
+        }
+
         .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
-        
-        textarea {
-            width: 100%;
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 1.4rem;
+        }
+
+        /* Efeitos decorativos */
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(233, 69, 96, 0.1);
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            width: 300px;
             height: 300px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: monospace;
-            resize: vertical;
-            margin-bottom: 15px;
+            top: -150px;
+            right: -150px;
         }
-        
-        .preview {
-            border: 1px dashed #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            min-height: 100px;
-            background: var(--white);
-            margin-top: 15px;
+
+        .decoration-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
         }
-        
+
+        /* Responsividade */
         @media (max-width: 768px) {
             .container {
-                padding: 0 10px;
+                padding: 20px;
             }
             
-            .profile-img {
-                width: 120px;
-                height: 120px;
+            .title {
+                font-size: 2.5rem;
             }
             
-            .profile h2 {
-                font-size: 24px;
+            .subtitle {
+                font-size: 1.2rem;
             }
             
-            .profile p {
-                font-size: 14px;
-            }
-            
-            .tabs {
+            .buttons {
                 flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Meu Site de Links</h1>
-            <p>Conecte-se comigo através das minhas redes e conteúdos</p>
-        </header>
-        
-        <div class="tabs">
-            <div class="tab active" data-tab="bio">Minha Bio</div>
-            <div class="tab" data-tab="editor">Editor HTML</div>
-        </div>
-        
-        <div class="tab-content active" id="bio-content">
-            <div class="profile">
-                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sua Foto" class="profile-img">
-                <h2>Seu Nome</h2>
-                <p>Uma breve descrição sobre você e o que você faz. Pode ser sobre seu trabalho, hobbies ou qualquer coisa que queira compartilhar com seus visitantes.</p>
-            </div>
-            
-            <div class="links">
-                <a href="https://instagram.com" class="link-item" target="_blank">
-                    <div class="link-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Meu Instagram</h3>
-                        <p>Siga-me para ver meu dia a dia</p>
-                    </div>
-                </a>
-                
-                <a href="https://youtube.com" class="link-item" target="_blank">
-                    <div class="link-icon">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Meu Canal no YouTube</h3>
-                        <p>Assista aos meus vídeos</p>
-                    </div>
-                </a>
-                
-                <a href="https://spotify.com" class="link-item" target="_blank">
-                    <div class="link-icon">
-                        <i class="fab fa-spotify"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Meu Spotify</h3>
-                        <p>Ouça minhas playlists favoritas</p>
-                    </div>
-                </a>
-                
-                <a href="https://blog.com" class="link-item" target="_blank">
-                    <div class="link-icon">
-                        <i class="fas fa-blog"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Meu Blog</h3>
-                        <p>Leia meus últimos artigos</p>
-                    </div>
-                </a>
-                
-                <a href="https://loja.com" class="link-item" target="_blank">
-                    <div class="link-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Minha Loja</h3>
-                        <p>Confira meus produtos</p>
-                    </div>
-                </a>
-                
-                <a href="mailto:seuemail@exemplo.com" class="link-item">
-                    <div class="link-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="link-text">
-                        <h3>Entre em Contato</h3>
-                        <p>Envie um e-mail para mim</p>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://instagram.com" class="social-icon" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com" class="social-icon" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com" class="social-icon" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com" class="social-icon" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="tab-content" id="editor-content">
-            <div class="editor-container">
-                <div class="editor-header">
-                    <h3>Editor HTML</h3>
-                    <div class="editor-actions">
-                        <button class="btn btn-secondary" id="preview-btn">Visualizar</button>
-                        <button class="btn btn-primary" id="save-btn">Salvar Alterações</button>
-                    </div>
-                </div>
-                <textarea id="html-editor" placeholder="Cole seu código HTML aqui...">
-<div class="profile">
-    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sua Foto" class="profile-img">
-    <h2>Seu Nome</h2>
-    <p>Uma breve descrição sobre você e o que você faz. Pode ser sobre seu trabalho, hobbies ou qualquer coisa que queira compartilhar com seus visitantes.</p>
-</div>
-
-<div class="links">
-    <a href="https://instagram.com" class="link-item" target="_blank">
-        <div class="link-icon">
-            <i class="fab fa-instagram"></i>
-        </div>
-        <div class="link-text">
-            <h3>Meu Instagram</h3>
-            <p>Siga-me para ver meu dia a dia</p>
-        </div>
-    </a>
+    <!-- IMAGEM DE FUNDO - ADICIONE O LINK DA SUA IMAGEM AQUI -->
+    <img src="https://cdn.discordapp.com/attachments/1391032316645740644/1436155924401094717/Kristel_Evans_168-yjmqk.jpg?ex=690e93ee&is=690d426e&hm=380bcf5f7fc1614dd34ca4aad133ffd1ab2fb9b959ee7d13a7f3dd1f3b403a70&" alt="Background" class="background-image">
     
-    <a href="https://youtube.com" class="link-item" target="_blank">
-        <div class="link-icon">
-            <i class="fab fa-youtube"></i>
-        </div>
-        <div class="link-text">
-            <h3>Meu Canal no YouTube</h3>
-            <p>Assista aos meus vídeos</p>
-        </div>
-    </a>
-</div>
-
-<div class="social-links">
-    <a href="https://instagram.com" class="social-icon" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://twitter.com" class="social-icon" target="_blank">
-        <i class="fab fa-twitter"></i>
-    </a>
-</div>
-                </textarea>
-                <div class="preview" id="html-preview"></div>
-            </div>
-        </div>
+    <div class="container">
+        <h1 class="title" id="typed-text"></h1>
         
-        <footer>
-            <p>© 2023 Seu Nome. Todos os direitos reservados.</p>
-        </footer>
+        <p class="subtitle">
+            Conteúdo ousado e sem censura para você perder o folego. 
+            Vem ver o que eu preparei pra você amor. 
+            🫦✨🔥
+        </p>
+        
+        <div class="buttons">
+            <!-- BOTÃO 1 - ADICIONE O LINK DE REDIRECIONAMENTO AQUI -->
+            <a href="https://wa.me/5511946002850?text=oii%20%2C%20tenho%20interesse%20no%20seu%20conte%C3%BAdo%20!" class="btn btn-primary">
+                <span class="emoji">💋</span> WHATSAPP VIP
+            </a>
+            
+            <!-- BOTÃO 2 - ADICIONE O LINK DE REDIRECIONAMENTO AQUI -->
+            <a href="https://teleg.one/ocultolari_bot" class="btn btn-secondary">
+                <span class="emoji">🔥</span> TELEGRAM
+            </a>
+            
+            <!-- BOTÃO 3 - ADICIONE O LINK DE REDIRECIONAMENTO AQUI -->
+            <a href="https://example.com/link3" class="btn btn-privacy">
+                <span class="emoji">🔒</span> PRIVACY
+            </a>
+        </div>
     </div>
+    
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
 
     <script>
-        // Sistema de abas
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove a classe active de todas as abas e conteúdos
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Adiciona a classe active à aba clicada
-                tab.classList.add('active');
-                
-                // Mostra o conteúdo correspondente
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.add('active');
-            });
-        });
+        // Texto animado
+        const typedTextElement = document.getElementById('typed-text');
+        const textToType = "Tenho algo pra te mostrar...";
+        let index = 0;
         
-        // Editor HTML
-        const editor = document.getElementById('html-editor');
-        const previewBtn = document.getElementById('preview-btn');
-        const saveBtn = document.getElementById('save-btn');
-        const preview = document.getElementById('html-preview');
-        const bioContent = document.getElementById('bio-content');
+        function typeText() {
+            if (index < textToType.length) {
+                typedTextElement.innerHTML = textToType.substring(0, index + 1) + '<span class="typed-text"></span>';
+                index++;
+                setTimeout(typeText, 100);
+            }
+        }
         
-        // Visualizar HTML
-        previewBtn.addEventListener('click', () => {
-            preview.innerHTML = editor.value;
-        });
-        
-        // Salvar HTML (simulação - em um ambiente real, você salvaria no servidor)
-        saveBtn.addEventListener('click', () => {
-            bioContent.innerHTML = editor.value;
-            alert('Alterações salvas com sucesso! Volte para a aba "Minha Bio" para ver as mudanças.');
-        });
-        
-        // Carregar preview inicial
-        preview.innerHTML = editor.value;
+        // Iniciar animação quando a página carregar
+        window.onload = function() {
+            setTimeout(typeText, 500);
+        };
     </script>
 </body>
 </html>
